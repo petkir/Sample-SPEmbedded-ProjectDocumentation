@@ -49,7 +49,7 @@ export default function Container() {
   }
   const createFolder = async (id: string, name: string) => {
     try {
-      const folder = await fetchWithToken(`https://graph.microsoft.com/v1.0/drives/${id}/root/children`, {
+       await fetchWithToken(`https://graph.microsoft.com/v1.0/drives/${id}/root/children`, {
         method: 'POST',
         body: JSON.stringify({
           name: name,
@@ -71,14 +71,14 @@ export default function Container() {
       {!loading && <div><h1 className="text-3xl font-bold">{containerData?.name}</h1><p>{containerData?.description}</p>
       </div>}
       {!loading && items && items.length > 0 &&
-        <div className='bg-lime-100'>
+        <div className='bg-lime-600 rounded p-5 pt-2'>
           {items.map((item) => {
             return <FolderContainer key={params.id + "_" + item.id} {...item} />
           }
           )}
         </div>
       }
-      <div className="w-3/4 p-5 bg-lime-600">
+      <div className="w-100 mt-5 p-5 bg-lime-600">
       <form className='form-inline'>
         <label htmlFor="name p-1">Modul:</label>
         <input  title="add Module" type="text" id="name" name="name" onChange={(e) => setName(e.target.value)} value={name} className="w-m2 p-2 text-xl rounded" />

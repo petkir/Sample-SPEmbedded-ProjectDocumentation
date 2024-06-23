@@ -12,13 +12,13 @@ export function Folder(props: IFolderEXProps) {
     const [folderName, setFolderName] = useState(props.name);
     const [isRenaming, setIsRenaming] = useState(false);
     const deleteFolder = async () => {
-        const folder = await fetchWithToken(`https://graph.microsoft.com/v1.0/drives/${props.containerId}/items/${props.id}`, {
+         await fetchWithToken(`https://graph.microsoft.com/v1.0/drives/${props.containerId}/items/${props.id}`, {
             method: 'DELETE'
         });
         props.reloadParent();
     };
     const renameFolder = async () => {
-        const folder = await fetchWithToken(`https://graph.microsoft.com/v1.0/drives/${props.containerId}/items/${props.id}`, {
+         await fetchWithToken(`https://graph.microsoft.com/v1.0/drives/${props.containerId}/items/${props.id}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 name: folderName
@@ -29,7 +29,7 @@ export function Folder(props: IFolderEXProps) {
     return (
         <div>
             <div>
-                <h3 className="inline">
+                <h3 className=" text-2xl font-bold inline">
                     {isRenaming ? <div>
                         <input  title="rename" type="text" 
                      className="w-m2 p-2 text-xl rounded"
@@ -72,7 +72,7 @@ export function Folder(props: IFolderEXProps) {
 
 
             <div className="ml-10">
-                <FolderItems containerId={props.containerId} id={props.id} />
+                <FolderItems containerId={props.containerId} id={props.id} showUpload={true} />
 
             </div>
         </div>

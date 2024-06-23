@@ -28,8 +28,8 @@ export function CreateContainer() {
             console.log(container);
             store.dispatch({ type: 'ADD_CONTAINER', payload: container });
             redirect(`/container/${container.id}`);
-        } catch (error) {
-            //  setError(error.message);
+        } catch (error:any) {
+              setError(error.message);
         } finally {
             setLoading(false);
         }
