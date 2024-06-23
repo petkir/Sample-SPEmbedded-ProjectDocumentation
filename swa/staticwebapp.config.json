@@ -1,0 +1,14 @@
+{
+    "navigationFallback": {
+      "rewrite": "/index.html",
+      "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
+    },
+    "globalHeaders": {
+      "Access-Control-Allow-Origin": "http://localhost:3000",
+      "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+    },
+    "platform": {
+      "apiRuntime": "node:18"
+    }
+  
+  }
